@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dialog_large_margin"
+            android:layout_marginBottom="@dimen/dialog_large_margin"
+            android:layout_marginLeft="@dimen/dialog_large_margin"
+            android:layout_marginRight="@dimen/dialog_large_margin"
+            android:text="Title"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/content_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_layout">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/message_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dialog_large_margin"
+                    android:layout_marginRight="@dimen/dialog_large_margin"
+                    android:layout_marginBottom="@dimen/dialog_default_margin"
+                    android:text="Message"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/actions_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/content_layout">
+
+        <RelativeLayout
+            android:id="@+id/buttons_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/positive_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="POSITIVE"/>
+
+            <Button
+                android:id="@+id/negative_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/positive_button"
+                android:text="NEGATIVE"/>
+
+            <Button
+                android:id="@+id/neutral_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="NEUTRAL"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/stacked_buttons_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/stacked_positive_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="POSITIVE"/>
+
+            <Button
+                android:id="@+id/stacked_negative_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/stacked_positive_button"
+                android:text="NEGATIVE"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_below="@+id/content_layout"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"/>
+
+</RelativeLayout>
