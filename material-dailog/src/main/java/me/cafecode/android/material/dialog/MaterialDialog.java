@@ -64,6 +64,4 @@ public class MaterialDialog extends AlertDialog {
         super(context, cancelable, cancelListener);
     }
 
-
-
 }

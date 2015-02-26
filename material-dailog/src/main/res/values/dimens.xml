@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <dimen name="dialog_xsmall_margin">4dp</dimen>
     <dimen name="dialog_small_margin">8dp</dimen>
     <dimen name="dialog_default_margin">16dp</dimen>
     <dimen name="dialog_large_margin">24dp</dimen>
+
+    <!-- Button dimension -->
+    <dimen name="button_raised_min_width">88dp</dimen>
+    <dimen name="button_flat_min_width">64dp</dimen>
+    <dimen name="button_min_height">36dp</dimen>
+    <dimen name="button_internal_padding">8dp</dimen>
+    <dimen name="button_external_margin">4dp</dimen>
+    <dimen name="button_radius">2dp</dimen>
 
 </resources>

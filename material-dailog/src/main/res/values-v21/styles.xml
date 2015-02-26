@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--<style name="Material" parent="Theme.AppCompat.Light"></style>-->
+    <style name="Material.Dialog" parent="Theme.AppCompat.Light.Dialog">
+
+    </style>
+
+    <style name="Material.Dialog.Title" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:capitalize">sentences</item>
+    </style>
+    <style name="Material.Dialog.Message" parent="TextAppearance.AppCompat.Subhead">
+        <item name="android:capitalize">sentences</item>
+    </style>
+    <style name="Material.Dialog.Button" parent="TextAppearance.AppCompat.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">36dp</item>
+        <item name="android:minWidth">64dp</item>
+        <item name="android:maxWidth">120dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:background">@drawable/bg_flat_light_button</item>
+        <item name="android:textColor">@color/light_flat_text_primary</item>
+    </style>
+</resources>
