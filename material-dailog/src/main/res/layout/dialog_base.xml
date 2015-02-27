@@ -3,122 +3,129 @@
     android:layout_width="match_parent" android:layout_height="match_parent"
     style="@style/Material.Dialog">
 
-    <RelativeLayout
-        android:id="@+id/title_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/title_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dialog_large_margin"
-            android:layout_marginBottom="@dimen/dialog_large_margin"
-            android:layout_marginLeft="@dimen/dialog_large_margin"
-            android:layout_marginRight="@dimen/dialog_large_margin"
-            style="@style/Material.Dialog.Title"
-            android:text="Use Google's location service?"/>
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/content_layout"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/title_layout">
+        android:orientation="vertical">
 
-        <ScrollView
+        <RelativeLayout
+            android:id="@+id/title_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/title_text"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dialog_large_margin"
+                android:layout_marginBottom="@dimen/dialog_large_margin"
+                android:layout_marginLeft="@dimen/dialog_large_margin"
+                android:layout_marginRight="@dimen/dialog_large_margin"
+                style="@style/Material.Dialog.Title"
+                android:text="Use Google's location service?"/>
 
-                <TextView
-                    android:id="@+id/message_text"
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/content_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/message_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dialog_large_margin"
+                        android:layout_marginRight="@dimen/dialog_large_margin"
+                        android:layout_marginBottom="@dimen/dialog_default_margin"
+                        style="@style/Material.Dialog.Message"
+                        android:text="You’re walking down the street, perhaps thinking about your day and what you plan to accomplish. Then you hear a voice yelling at you, perhaps mixed with whistles or noises, saying something about your body or appearance. Sometimes it feels unclear whether or not you are allowed to feel offended by whatever was said, and sometimes it’s perfectly clear that the words are meant to reduce you to an object for sexual gratification. However, what’s almost never clear is exactly what you should say or do in this situation. Just ignore them? Tell them that their commentary is unwelcome? Or go even further and seek justice?
+
+This dilemma is familiar to women the world over, but in India, it’s so ubiquitous that, according to one study, 95% of women reported that their mobility was restricted because of fear of male harassment in public places, and the majority of these women fail to report such harassment because it has been taken for granted that nothing can be done about it."/>
+
+                </LinearLayout>
+
+            </ScrollView>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/actions_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dialog_default_margin"
+            android:layout_marginBottom="@dimen/dialog_default_margin">
+
+            <RelativeLayout
+                android:id="@+id/buttons_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dialog_default_margin"
+                android:layout_marginRight="@dimen/dialog_default_margin">
+
+                <Button
+                    android:id="@+id/positive_button"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="@dimen/dialog_small_margin"
+                    style="@style/Material.Dialog.Button"
+                    android:text="POSITIVE"/>
+
+                <Button
+                    android:id="@+id/negative_button"
+                    android:layout_toLeftOf="@+id/positive_button"
+                    style="@style/Material.Dialog.Button"
+                    android:text="NEGATIVE"/>
+
+                <Button
+                    android:id="@+id/neutral_button"
+                    android:layout_alignParentLeft="true"
+                    style="@style/Material.Dialog.Button"
+                    android:text="NEUTRAL"/>
+
+                <!--<View-->
+                    <!--android:layout_below="@+id/neutral_button"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="8dp"/>-->
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/stacked_buttons_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+                <Button
+                    android:id="@+id/stacked_positive_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dialog_large_margin"
-                    android:layout_marginRight="@dimen/dialog_large_margin"
-                    android:layout_marginBottom="@dimen/dialog_default_margin"
-                    style="@style/Material.Dialog.Message"
-                    android:text="Let Google help apps determine location. This mean sending anonymous location data to Google, even when no apps are running."/>
+                    android:text="POSITIVE"/>
 
-            </LinearLayout>
+                <Button
+                    android:id="@+id/stacked_negative_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/stacked_positive_button"
+                    android:text="NEGATIVE"/>
 
-        </ScrollView>
+                <View
+                    android:layout_below="@+id/stacked_negative_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"/>
 
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/actions_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/content_layout">
-
-        <RelativeLayout
-            android:id="@+id/buttons_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dialog_xsmall_margin"
-            android:layout_marginBottom="@dimen/dialog_xsmall_margin"
-            android:layout_marginLeft="@dimen/dialog_default_margin"
-            android:layout_marginRight="@dimen/dialog_default_margin">
-
-            <Button
-                android:id="@+id/positive_button"
-                android:layout_alignParentRight="true"
-                android:layout_marginLeft="@dimen/dialog_small_margin"
-                style="@style/Material.Dialog.Button"
-                android:text="POSITIVE"/>
-
-            <Button
-                android:id="@+id/negative_button"
-                android:layout_toLeftOf="@+id/positive_button"
-                style="@style/Material.Dialog.Button"
-                android:text="NEGATIVE"/>
-
-            <Button
-                android:id="@+id/neutral_button"
-                android:layout_alignParentLeft="true"
-                style="@style/Material.Dialog.Button"
-                android:text="NEUTRAL"/>
-
-            <View
-                android:layout_below="@+id/neutral_button"
-                android:layout_width="match_parent"
-                android:layout_height="8dp"/>
+            </RelativeLayout>
 
         </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/stacked_buttons_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone">
-
-            <Button
-                android:id="@+id/stacked_positive_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="POSITIVE"/>
-
-            <Button
-                android:id="@+id/stacked_negative_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/stacked_positive_button"
-                android:text="NEGATIVE"/>
-
-            <View
-                android:layout_below="@+id/stacked_negative_button"
-                android:layout_width="match_parent"
-                android:layout_height="8dp"/>
-
-        </RelativeLayout>
-
-    </RelativeLayout>
+    </LinearLayout>
 
 </RelativeLayout>

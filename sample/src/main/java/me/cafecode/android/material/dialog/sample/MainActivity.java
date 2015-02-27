@@ -24,6 +24,7 @@ public class MainActivity extends ActionBarActivity {
         BASIC_PROGRESS,
         BASIC_PROGRESS_WITH_TITLE,
         BASIC,
+        BASIC_STACKED,
         MATERIAL_BASIC
     }
 
@@ -35,6 +36,7 @@ public class MainActivity extends ActionBarActivity {
 
     private Object[][] mDialogMenu = new Object[][]{
             {DialogMenu.BASIC, "Basic", "Basic"},
+            {DialogMenu.BASIC_STACKED, "Basic tacked button", "Stacked buttons"},
             {DialogMenu.BASIC_PROGRESS, "Basic progress dialog", "Description"},
             {DialogMenu.BASIC_PROGRESS_WITH_TITLE, "Basic progress with title dialog", "Description"},
             {DialogMenu.MATERIAL_BASIC, "Material basic", "Description"}
@@ -58,6 +60,9 @@ public class MainActivity extends ActionBarActivity {
                     case BASIC:
                         showBasicDialog();
                         break;
+                    case BASIC_STACKED:
+                        showBasicStackedButtonsDialog();
+                        break;
                     case BASIC_PROGRESS:
                         showBasicProgressDialog();
                         break;
@@ -78,11 +83,17 @@ public class MainActivity extends ActionBarActivity {
     private void showBasicDialog() {
         new AlertDialog.Builder(this)
                 .setTitle("Title")
-                .setMessage("Message")
+                .setMessage("You’re walking down the street, perhaps thinking about your day and what you plan to accomplish. Then you hear a voice yelling at you, perhaps mixed with whistles or noises, saying something about your body or appearance. Sometimes it feels unclear whether or not you are allowed to feel offended by whatever was said, and sometimes it’s perfectly clear that the words are meant to reduce you to an object for sexual gratification. However, what’s almost never clear is exactly what you should say or do in this situation. Just ignore them? Tell them that their commentary is unwelcome? Or go even further and seek justice?\n" +
+                        "\n" +
+                        "This dilemma is familiar to women the world over, but in India, it’s so ubiquitous that, according to one study, 95% of women reported that their mobility was restricted because of fear of male harassment in public places, and the majority of these women fail to report such harassment because it has been taken for granted that nothing can be done about it.")
                 .setNegativeButton("CANCEL", null)
                 .setPositiveButton("AGREE", null)
                 .setNeutralButton("NEUTRAL", null)
                 .show();
+    }
+
+    private void showBasicStackedButtonsDialog() {
+        new AlertDialog.Builder(this).setTitle("Title").setMessage("You’re walking down the street, perhaps thinking about your day and what you plan to accomplish. Then you hear a voice yelling at you, perhaps mixed with whistles or noises, saying something about your body or appearance.");
     }
 
     private void showBasicProgressDialog() {
@@ -94,7 +105,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void showMaterialBasicDialog() {
-        new MaterialDialog.Builder(this).show();
+        new MaterialDialog.Builder(this).title("Builder pattern").message("So what other choice do we have for these cases?").show();
     }
 
     @Override

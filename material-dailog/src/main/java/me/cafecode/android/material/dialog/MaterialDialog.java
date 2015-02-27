@@ -1,10 +1,11 @@
 package me.cafecode.android.material.dialog;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
+import android.support.annotation.StringRes;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.TextView;
 
 /**
  * Created by Natthawut Hemathulin on 2/26/15 AD.
@@ -16,12 +17,26 @@ public class MaterialDialog extends AlertDialog {
         super(context);
     }*/
 
+    /**
+     * Views in dialog
+     */
+    private View mDialogView;
+    private TextView mTitleTextView;
+    private TextView mMessageTextView;
+
     private Context context;
+
     private Builder builder;
+
+    private String title;
+    private String message;
 
     public static class Builder {
 
         private Context mContext;
+
+        private String title;
+        private String message;
 
         public Builder(Context context) {
             mContext = context;
@@ -31,9 +46,29 @@ public class MaterialDialog extends AlertDialog {
             return mContext;
         }
 
+        public Builder title(String title) {
+            this.title = title;
+            return this;
+        }
+
+        public Builder title(@StringRes int titleRes) {
+            this.title = mContext.getString(titleRes);
+            return this;
+        }
+
+        public Builder message(String message) {
+            this.message = message;
+            return this;
+        }
+        public Builder message(@StringRes int messageRes) {
+            this.message = mContext.getString(messageRes);
+            return this;
+        }
+
         public MaterialDialog create() {
             return new MaterialDialog(this);
         }
+
         public MaterialDialog show() {
             MaterialDialog materialDialog = create();
             materialDialog.show();
@@ -52,8 +87,22 @@ public class MaterialDialog extends AlertDialog {
         this.builder = builder;
         this.context = builder.getContext();
 
-        View contentView = LayoutInflater.from(context).inflate(R.layout.dialog_base, null);
-        super.setView(contentView);
+        this.title = builder.title;
+        this.message = builder.message;
+
+        mDialogView = LayoutInflater.from(context).inflate(R.layout.dialog_base, null);
+
+        mTitleTextView = (TextView) mDialogView.findViewById(R.id.title_text);
+        mMessageTextView = (TextView) mDialogView.findViewById(R.id.message_text);
+
+        if (this.title != null) {
+            mTitleTextView.setText(this.title);
+        }
+        if (this.message != null) {
+            mMessageTextView.setText(this.message);
+        }
+
+        super.setView(mDialogView);
     }
 
     public MaterialDialog(Context context, int theme) {
